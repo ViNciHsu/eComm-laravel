@@ -28,7 +28,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
+        // 將password拿掉或註解，取資料時才能顯示密碼
+//        'password',
         'remember_token',
     ];
 
