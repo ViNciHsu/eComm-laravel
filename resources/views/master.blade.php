@@ -24,5 +24,29 @@
         height: 500px;
         padding-top: 100px;
     }
+    /*輪播圖片,使每張大小不同的圖片高度一致*/
+    img.slider-img{
+        height: 400px !important;
+    }
+    /*讓footer能夠離產品資訊有點距離*/
+    .custom-product{
+        height: 600px;
+    }
+    .slider-text{
+        background-color: #35443585 !important;
+    }
+    .trending-image{
+        height: 100px;
+    }
+    .trending-item{
+        float: left;
+        width: 20%;
+    }
+    .trending-wrapper{
+        margin: 30px;
+    }
+    .detail-img{
+        height: 200px;
+    }
 </style>
 </html>
