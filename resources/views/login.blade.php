@@ -10,7 +10,7 @@
                     <input type="email" name="email" class="form-control" id="email" placeholder="">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail">Password</label>
+                    <label for="exampleInputPassword">Password</label>
                     <input type="password" name="password" class="form-control" id="password" placeholder="">
                 </div>
                 <br>
