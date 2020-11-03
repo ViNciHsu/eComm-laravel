@@ -26,8 +26,16 @@ class ProductController extends Controller
     // 搜尋
     function search(Request $request)
     {
+        // 開啟紀錄
+        DB::connection()->enableQueryLog();
+        // 資料庫查詢
         $data = Product::where('name', 'like', '%'.$request->input('query').'%')
+            // 增加模糊搜尋
+            ->orwhere('price', 'like', '%'.$request->input('query').'%')
             ->get();
+        // 印出 SQL 語法
+//        dd(DB::getQueryLog());
+//        dd($data);
         return view('search',[
             'products' => $data
         ]);
@@ -66,9 +74,16 @@ class ProductController extends Controller
         $products = DB::table('cart')
             ->join('products','cart.product_id','=','products.id')
             ->where('cart.user_id',$userId)
-            ->select('products.*')
+            // 加上 cart.id as cart_id 才能在 cartlist 中取得 cart.id 用來移除購物車商品
+            ->select('products.*','cart.id as cart_id')
             ->get();
 
         return view('cartlist', ['products' => $products]);
+    }
+
+    function removeCart($id)
+    {
+        Cart::destroy($id);
+        return redirect('cartlist');
     }
 }

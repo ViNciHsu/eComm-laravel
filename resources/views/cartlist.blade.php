@@ -16,7 +16,7 @@
                             <h5>{{ $item->description }}</h5>
                         </div>
                         <div class="col-sm-3">
-                            <button class="btn btn-warning">Remove to Cart</button>
+                            <a href="/removecart/{{ $item->cart_id }}" class="btn btn-danger">Remove to Cart</a>
                         </div>
                     </div>
                 @endforeach
