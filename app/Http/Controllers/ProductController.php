@@ -22,6 +22,7 @@ class ProductController extends Controller
         return view('detail',['product' => $data]);
     }
 
+    // 搜尋
     function search(Request $request)
     {
         $data = Product::where('name', 'like', '%'.$request->input('query').'%')
@@ -31,8 +32,10 @@ class ProductController extends Controller
         ]);
     }
 
+    // 加品項至購物車
     function addToCart(Request $request)
     {
+        // 如果有登入
         if($request->session()->has('user'))
         {
             $cart = new Cart;
@@ -49,6 +52,7 @@ class ProductController extends Controller
 
     }
 
+    // 根據 user_id 計算購物車購買數量
     static function cartItem()
     {
         $userId = Session::get('user')['id'];

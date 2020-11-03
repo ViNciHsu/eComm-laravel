@@ -49,7 +49,7 @@
         height: 200px;
     }
     .search-box{
-        width: 500px !important;
+        width: 350px !important;
     }
 </style>
 </html>
